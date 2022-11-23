@@ -8,4 +8,6 @@ q <- function(...) {
 }
 
 # Function to convert yes no factor variable
-yn <- function(x) factor(x, 0:1, c('yes', 'no'))
+yn <- function(x) {
+  factor(x, 0:1, c('yes', 'no'))
+  }
