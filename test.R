@@ -6,3 +6,6 @@ q <- function(...) {
   if(length(n)) names(w) <- n
   w
 }
+
+# Function to convert yes no factor variable
+yn <- function(x) factor(x, 0:1, c('yes', 'no'))
