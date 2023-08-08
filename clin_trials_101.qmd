@@ -1,0 +1,46 @@
+---
+title: "Clinical Trials 101"
+author: "Lawrence Richer"
+format: html
+editor: visual
+---
+
+An analysis of a randomized controlled trial of ketorolac + metoclopramide versus metoclopramide alone.
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+
+library(rsconnect)
+library(tidyverse)
+library(consort)
+library(skimr)
+
+df <- read_csv("data/ed_migraine_data.csv",show_col_types = FALSE)
+
+```
+
+```{r}
+#| echo: false
+
+
+out <- consort_plot(data = df,
+                    orders = c(sid = "Assessed for eligibility",
+                               excluded_reason    = "Excluded",
+                               tx_arm    = "Randomized",
+                               lfu1 = "Not treated",
+                               sid = "Analysis set",
+                               lfu2 = "Lost to follow-up",
+                               sid = "Analysis set"),
+                    side_box = c("excluded_reason","lfu1","lfu2"),
+                    allocation = "tx_arm",
+                    labels = c("1" = "Screening", 
+                               "2" = "Randomization",
+                               "4"="Treatment Cohort",
+                               "5"="Follow-up Cohort"))
+
+plot(out)
+
+
+```

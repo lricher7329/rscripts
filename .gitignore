@@ -1,6 +1,7 @@
 # History files
 .Rhistory
 .Rapp.history
+.DS_Store
 
 # Session Data files
 .RData
@@ -37,3 +38,14 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# HTML files
+*.html
+
+# Folder to ignore
+clin_trials_101_files/
+data/
+rsconnect/
+rscripts_files/
+
+
